@@ -53,9 +53,14 @@ import NewExpense from './components/NewExpense/NewExpense';
   //   React.createElement('h2', {}, 'Let\'s code '),
   //   React.createElement(Expenses, {items: expenses})
   // );
+    
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  };
   return (
 		<div>
-			<NewExpense/>
+      <NewExpense onSavedData={addExpenseHandler} />
 			<Expenses items={expenses} />
 		</div>
 	);
