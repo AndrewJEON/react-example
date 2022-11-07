@@ -13,24 +13,37 @@ const ExpenseForm = () => {
 	});
 
   const titleChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
+    // 이렇게 하면 Data Lose가 없다.
+    setUserInput((prevState) => {
+      return {
+				...prevState,
+				enteredTitle: event.target.value,
+			};
     });
+
+    // 적용되는 속도 문제로 Data Lose가 생길 수 있다.
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value,
+    // });
   };
 
   const amountChangeHandler = event => {
-    setUserInput({
-      ...userInput,
-      enteredAmount: event.target.value,
-    });
+    setUserInput((prevState) => {
+			return {
+				...prevState,
+				enteredAmount: event.target.value,
+			};
+		});
   };
 
   const dateChangeHandler = event => {
-    setUserInput({
-      ...userInput,
-      enteredDate: event.target.value,
-    });
+    setUserInput((prevState) => {
+			return {
+				...prevState,
+				enteredDate: event.target.value,
+			};
+		});
   };
 
 
