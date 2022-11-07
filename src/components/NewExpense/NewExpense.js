@@ -5,8 +5,16 @@ import ExpenseForm from './ExpenseForm';
 
 const NewExpense = () => {
 
+  const saveExpenseDataHandler = (enterExpenseData) => {
+    const expenseData = {
+      ...enterExpenseData,
+      id: Math.random().toString()
+    };
+    console.log(expenseData);
+  };
+
   return <div className='new-expense'>
-    <ExpenseForm/>
+    <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
   </div>
 
 };
